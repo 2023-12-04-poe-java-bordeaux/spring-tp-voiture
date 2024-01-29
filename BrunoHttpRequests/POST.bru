@@ -1,0 +1,22 @@
+meta {
+  name: POST
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseURL}}/api/voitures
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "marque": "marque1put",
+      "modele": "modele1",
+      "annee": 2000,
+      "couleur": "chrome",
+      "dateImmatriculation": "2018-05-12",
+      "immatriculation": "xv-154-put"
+  }
+}

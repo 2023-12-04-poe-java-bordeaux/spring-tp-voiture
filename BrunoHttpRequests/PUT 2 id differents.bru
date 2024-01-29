@@ -1,0 +1,23 @@
+meta {
+  name: PUT 2 id differents
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{baseURL}}/api/voitures/2
+  body: json
+  auth: none
+}
+
+body:json {
+    {
+      "id":1,
+      "marque": "Mercedes",
+      "modele": "Sprinter",
+      "annee": 2000,
+      "couleur": "chrome",
+      "dateImmatriculation": "2018-05-12",
+      "immatriculation": "xv-154-put"
+    }
+}
