@@ -1,5 +1,8 @@
 package com.example.tpVoiture.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.time.LocalDate;
 import java.time.Year;
 
 public class VoitureDTO {
@@ -9,6 +12,9 @@ public class VoitureDTO {
     private int year;
     private String color;
     private int age;
+
+    @JsonIgnore
+    private LocalDate dateImmatriculation;
 
     public String getBrand() {
         return brand;
@@ -43,10 +49,19 @@ public class VoitureDTO {
     }
 
     public int getAge() {
-        return Year.now().getValue() - getYear();
+        //return Year.now().getValue() - getYear();
+        return LocalDate.now().getYear() - dateImmatriculation.getYear();
     }
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public LocalDate getDateImmatriculation() {
+        return dateImmatriculation;
+    }
+
+    public void setDateImmatriculation(LocalDate dateImmatriculation) {
+        this.dateImmatriculation = dateImmatriculation;
     }
 }

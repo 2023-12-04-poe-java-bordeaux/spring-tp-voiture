@@ -10,6 +10,7 @@ public class VoitureMapper {
         dto.setModel(voiture.getModele());
         dto.setYear(voiture.getAnnee());
         dto.setColor(voiture.getCouleur());
+        dto.setDateImmatriculation(voiture.getDateImmatriculation());
         return dto;
     }
 }
