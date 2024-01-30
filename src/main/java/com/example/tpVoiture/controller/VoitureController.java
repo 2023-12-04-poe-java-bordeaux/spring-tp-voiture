@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,8 +18,14 @@ public class VoitureController {
     VoitureService voitureService;
 
     @GetMapping("voitures")
-    public List<Voiture> findAll(){
-        return voitureService.findAll();
+    public List<VoitureDTO> findAll(){
+        List<Voiture> models = voitureService.findAll();
+        List<VoitureDTO> dtos = new ArrayList<>();
+        for(Voiture v : models){
+                VoitureDTO dto = VoitureMapper.convertToDto(v);
+                dtos.add(dto);
+        }
+        return dtos;
     }
 
     @PostMapping("voitures")
